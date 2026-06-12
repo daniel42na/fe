@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Home",
+    "users": "Users",
+    "language": "Language",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
+  },
+  "language": {
+    "de": "Deutsch",
+    "en": "English"
+  },
+  "user": {
+    "guest": "Guest",
+    "subtitle": "Code Challenge"
+  }
+}
