@@ -33,10 +33,10 @@ function getBreadcrumbItems(
     return [{ label: t("nav.home"), to: "/" }];
   }
 
-  if (pathname.startsWith("/users")) {
+  if (pathname.startsWith("/employees")) {
     return [
       { label: t("nav.home"), to: "/" },
-      { label: t("nav.users"), to: "/users" },
+      { label: t("nav.employees"), to: "/employees" },
     ];
   }
 
@@ -60,7 +60,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const menuItems = [
     { label: t("nav.home"), id: "home", icon: "home", to: "/" },
-    { label: t("nav.users"), id: "users", icon: "users", to: "/users" },
+    { label: t("nav.employees"), id: "employees", icon: "users", to: "/employees" },
   ] as ListMenuItem<typeof Link>[];
 
   const breadcrumbItems = getBreadcrumbItems(pathname, t);

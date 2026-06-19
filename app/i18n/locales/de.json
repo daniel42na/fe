@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Startseite",
-    "users": "Benutzer",
+    "employees": "Benutzer",
     "language": "Sprache",
     "lightMode": "Light Mode",
     "darkMode": "Dark Mode"
