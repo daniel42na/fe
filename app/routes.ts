@@ -1,8 +1,13 @@
 import { type RouteConfig, index, layout, route } from "@react-router/dev/routes";
 
+export const ROUTES = {
+  home: "/",
+  employees: "/employees",
+} as const;
+
 export default [
   layout("routes/app-layout.tsx", [
     index("routes/home.tsx"),
-    route("employees", "routes/employees.tsx"),
+    route(ROUTES.employees, "routes/employees.tsx"),
   ]),
 ] satisfies RouteConfig;

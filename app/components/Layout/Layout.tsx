@@ -15,12 +15,13 @@ import {
 
 import { useSharedUserArea } from "./useSharedUserArea";
 import { useSidebarOpen } from "./useSidebarOpen";
+import { ROUTES } from "~/routes";
 
 function getActiveItemId(
   pathname: string,
   menuItems: ListMenuItem<typeof Link>[],
 ): string {
-  if (pathname === "/" || pathname === "") return "home";
+  if (pathname === ROUTES.home || pathname === "") return "home";
   const firstSlug = pathname.split("/")[1] || "";
   return menuItems.find((item) => item.id === firstSlug)?.id ?? "home";
 }
@@ -29,18 +30,18 @@ function getBreadcrumbItems(
   pathname: string,
   t: (key: string) => string,
 ): BreadcrumbsItem<typeof Link>[] {
-  if (pathname === "/" || pathname === "") {
-    return [{ label: t("nav.home"), to: "/" }];
+  if (pathname === ROUTES.home || pathname === "") {
+    return [{ label: t("nav.home"), to: ROUTES.home }];
   }
 
-  if (pathname.startsWith("/employees")) {
+  if (pathname.startsWith(ROUTES.employees)) {
     return [
-      { label: t("nav.home"), to: "/" },
-      { label: t("nav.employees"), to: "/employees" },
+      { label: t("nav.home"), to: ROUTES.home },
+      { label: t("nav.employees"), to: ROUTES.employees },
     ];
   }
 
-  return [{ label: t("nav.home"), to: "/" }];
+  return [{ label: t("nav.home"), to: ROUTES.home }];
 }
 
 function formatHeaderDate(date: Date, language: string): string {
@@ -59,8 +60,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useLocation();
 
   const menuItems = [
-    { label: t("nav.home"), id: "home", icon: "home", to: "/" },
-    { label: t("nav.employees"), id: "employees", icon: "users", to: "/employees" },
+    { label: t("nav.home"), id: "home", icon: "home", to: ROUTES.home },
+    { label: t("nav.employees"), id: "employees", icon: "users", to: ROUTES.employees },
   ] as ListMenuItem<typeof Link>[];
 
   const breadcrumbItems = getBreadcrumbItems(pathname, t);
