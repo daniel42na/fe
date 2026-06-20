@@ -1,4 +1,4 @@
-import EmployeesPage from "../features/employees/pages/EmployeesPage";
+import { EmployeesPage } from "../features/employees/pages";
 
 export default function Employees() {
   return <EmployeesPage />;

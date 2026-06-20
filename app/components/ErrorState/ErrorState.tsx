@@ -6,7 +6,7 @@ type Props = {
   onRetry: () => void;
 };
 
-const Error = ({ onRetry, error }: Props) => {
+const ErrorState = ({ onRetry, error }: Props) => {
   const { t } = useTranslation();
 
   return (
@@ -20,4 +20,4 @@ const Error = ({ onRetry, error }: Props) => {
   );
 };
 
-export default Error;
+export default ErrorState;
