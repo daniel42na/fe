@@ -1,4 +1,6 @@
-import type { Employee, EmployeeFilters } from "../types/employee";
+import { useEffect, useState } from "react";
+import type { Employee, EmployeeFilters } from "~/mocked/types/employee";
+import { fetchEmployees, fetchEmployeeFilters } from "~/mocked/api/employees";
 
 type UseEmployeesResult = {
   employees: Employee[];
@@ -9,13 +11,39 @@ type UseEmployeesResult = {
 };
 
 export function useEmployees(): UseEmployeesResult {
-  // TODO: Implement the useEmployees hook
+  const [employees, setEmployees] = useState<Employee[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [filters, setFilters] = useState<EmployeeFilters | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+
+  const fetchData = async () => {
+    try {
+      setError(null);
+      setIsLoading(true);
+
+      const [employees, filters] = await Promise.all([
+        fetchEmployees(),
+        fetchEmployeeFilters(),
+      ]);
+
+      setEmployees(employees);
+      setFilters(filters);
+    } catch (error) {
+      setError(error as Error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return {
-    employees: [],
-    filters: null,
-    isLoading: false,
-    error: null,
-    refetch: () => {},
+    employees,
+    filters,
+    isLoading,
+    error,
+    refetch: fetchData,
   };
 }

@@ -145,7 +145,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               </Stack>
             }
           >
-            {children}
+            <div className="flex transition-all w-full flex-col items-baseline gap-md p-lg h-full">
+              {children}
+            </div>
           </Card>
         </div>
       </Grid>
