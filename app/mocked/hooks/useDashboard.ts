@@ -1,4 +1,6 @@
-import type { DashboardData } from "../types/dashboard";
+import { useCallback, useEffect, useState } from "react";
+import { fetchDashboard } from "~/mocked/api/dashboard";
+import type { DashboardData } from "~/mocked/types/dashboard";
 
 type UseDashboardResult = {
   dashboard: DashboardData | null;
@@ -8,12 +10,30 @@ type UseDashboardResult = {
 };
 
 export function useDashboard(): UseDashboardResult {
-  // TODO: Implement the useDashboard hook
+  const [dashboard, setDashboard] = useState<DashboardData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  const fetchData = useCallback(async () => {
+    try {
+      setError(null);
+      setIsLoading(true);
+      setDashboard(await fetchDashboard());
+    } catch (err) {
+      setError(err as Error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return {
-    dashboard: null,
-    isLoading: false,
-    error: null,
-    refetch: () => {},
+    dashboard,
+    isLoading,
+    error,
+    refetch: fetchData,
   };
 }
