@@ -13,7 +13,7 @@ function EmployeesPage() {
   if (error) return <ErrorState onRetry={refetch} error={error} />;
 
   return (
-    <Stack direction="column" gap="md" width="100%" height="100%">
+    <Stack direction="column" gap="md" width="100%">
       <div>
         <Typography variant="display" size="sm">
           {t("employees.page.title")}

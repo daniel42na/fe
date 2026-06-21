@@ -113,11 +113,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           userArea={sharedUserArea}
           onToggleOpen={setIsOpen}
         />
-        <div className="overflow-hidden">
+        <div className="min-h-0 h-full overflow-y-auto">
           <Card
-            overflow="hidden"
             padding="none"
-            height="100%"
             width="100%"
             variant="outlined"
             header={
@@ -155,7 +153,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               </Stack>
             }
           >
-            <div className="flex transition-all w-full flex-col items-baseline gap-md p-lg h-full">
+            <div className="flex w-full flex-col items-baseline gap-md p-lg">
               {children}
             </div>
           </Card>

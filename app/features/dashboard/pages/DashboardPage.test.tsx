@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import DashboardPage from "./DashboardPage";
 
@@ -20,6 +21,13 @@ vi.mock("../components/Skeleton", () => ({
   Skeleton: () => <div>SkeletonMock</div>,
 }));
 
+const renderPage = () =>
+  render(
+    <MemoryRouter>
+      <DashboardPage />
+    </MemoryRouter>,
+  );
+
 describe("DashboardPage", () => {
   beforeEach(() => {
     useDashboardMock.mockReset();
@@ -34,11 +42,11 @@ describe("DashboardPage", () => {
       refetch: vi.fn(),
     });
 
-    render(<DashboardPage />);
+    renderPage();
 
     expect(screen.getByText("SkeletonMock")).toBeInTheDocument();
     expect(screen.queryByText("ErrorStateMock")).not.toBeInTheDocument();
-    expect(screen.queryByText("DashboardPage")).not.toBeInTheDocument();
+    expect(screen.queryByText("dashboard.page.title")).not.toBeInTheDocument();
   });
 
   it("renders error state when error exists", () => {
@@ -52,19 +60,27 @@ describe("DashboardPage", () => {
       refetch,
     });
 
-    render(<DashboardPage />);
+    renderPage();
 
     expect(screen.getByText("ErrorStateMock")).toBeInTheDocument();
     expect(errorStatePropsMock).toHaveBeenCalledWith({ error, onRetry: refetch });
     expect(screen.queryByText("SkeletonMock")).not.toBeInTheDocument();
-    expect(screen.queryByText("DashboardPage")).not.toBeInTheDocument();
   });
 
-  it("renders content when data is ready and no error", () => {
+  it("renders the header and KPI cards when data is ready", () => {
     useDashboardMock.mockReturnValue({
       dashboard: {
         announcementKey: "dashboard.announcement",
-        kpis: [],
+        kpis: [
+          {
+            id: "employees",
+            labelKey: "dashboard.kpis.employees",
+            value: "247",
+            change: "+12",
+            changeColor: "green",
+            icon: "users",
+          },
+        ],
         activities: [],
         upcomingEvents: [],
         onboardingProgress: [],
@@ -74,9 +90,11 @@ describe("DashboardPage", () => {
       refetch: vi.fn(),
     });
 
-    render(<DashboardPage />);
+    renderPage();
 
-    expect(screen.getByText("DashboardPage")).toBeInTheDocument();
+    expect(screen.getByText("dashboard.page.title")).toBeInTheDocument();
+    expect(screen.getByText("247")).toBeInTheDocument();
+    expect(screen.getByText("+12")).toBeInTheDocument();
     expect(screen.queryByText("SkeletonMock")).not.toBeInTheDocument();
     expect(screen.queryByText("ErrorStateMock")).not.toBeInTheDocument();
   });

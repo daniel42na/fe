@@ -231,7 +231,7 @@ const EmployeesTable = ({ employees, filters }: Props) => {
   );
 
   return (
-    <Stack direction="column" gap="md" width="100%" height="100%">
+    <Stack direction="column" gap="md" width="100%">
       <Table
         columns={columns}
         data={data}

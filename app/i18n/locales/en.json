@@ -19,12 +19,28 @@
     "retry": "Try again"
   },
   "dashboard": {
+    "page": {
+      "title": "Overview",
+      "description": "Welcome back — see your team's key metrics and recent activity at a glance.",
+      "action": {
+        "employees": {
+          "add": "Add employee",
+          "browse": "Employees"
+        }
+      },
+      "infoBoxApplications": "new applications are awaiting review",
+      "infoBoxOnboarding": "onboarding processes are due this week",
+      "activities": "Recent activity",
+      "refresh": "Refresh",
+      "upcomingEvents": "Upcoming events",
+      "onboardingProgress": "Onboarding progress"
+    },
     "announcement": "Welcome to your HR dashboard",
     "kpis": {
-      "employees": "Employees",
+      "employees": "Active employees",
       "positions": "Open positions",
-      "onboarding": "Onboarding",
-      "leave": "On leave"
+      "onboarding": "In onboarding",
+      "leave": "Pending leave requests"
     },
     "activity": {
       "signedContract": "signed a contract",

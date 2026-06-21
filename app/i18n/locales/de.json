@@ -19,12 +19,28 @@
     "retry": "Erneut versuchen"
   },
   "dashboard": {
+    "page": {
+      "title": "Übersicht",
+      "description": "Willkommen zurück — hier sehen Sie die wichtigsten Kennzahlen und Aktivitäten Ihres Teams.",
+      "action": {
+        "employees": {
+          "add": "Mitarbeiter anlegen",
+          "browse": "Mitarbeitende"
+        }
+      },
+      "infoBoxApplications": "3 neue Bewerbungen sind in Prüfung",
+      "infoBoxOnboarding": "2 Onboarding-Prozesse sind diese Woche fällig",
+      "activities": "Letzte Aktivitäten",
+      "refresh": "Aktualisieren",
+      "upcomingEvents": "Anstehende Termine",
+      "onboardingProgress": "Onboarding-Fortschritt"
+    },
     "announcement": "Willkommen in Ihrem HR-Dashboard",
     "kpis": {
-      "employees": "Mitarbeitende",
+      "employees": "Aktive Mitarbeitende",
       "positions": "Offene Stellen",
-      "onboarding": "Onboarding",
-      "leave": "Abwesend"
+      "onboarding": "Im Onboarding",
+      "leave": "Offene Urlaubsanträge"
     },
     "activity": {
       "signedContract": "hat einen Vertrag unterschrieben",
