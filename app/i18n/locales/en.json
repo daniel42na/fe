@@ -54,5 +54,44 @@
       "documents": "Documents",
       "training": "Training"
     }
+  },
+  "employees": {
+    "title": "All employees",
+    "search": "Search",
+    "empty": "No employees found",
+    "page": {
+      "title": "Employees",
+      "description": "View and manage all employees here."
+    },
+    "columns": {
+      "name": "Name",
+      "vorname": "First name",
+      "beruf": "Profession",
+      "telefon": "Phone number",
+      "plz": "Postal code",
+      "eintritt": "Start date",
+      "ueberlassen": "Assigned until",
+      "status": "Status",
+      "aktionen": "Actions"
+    },
+    "filters": {
+      "beruf": "Profession",
+      "plz": "Postal code",
+      "eintritt": "Start date",
+      "ueberlassen": "Assigned until",
+      "status": "Status"
+    },
+    "status": {
+      "mitarbeiter": "Employee",
+      "bewerber": "Applicant",
+      "ehemalig": "Former employee",
+      "zukuenftig": "Future employee",
+      "bewerber-cockpit": "Applicant cockpit"
+    },
+    "actions": {
+      "view": "View details",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
   }
 }

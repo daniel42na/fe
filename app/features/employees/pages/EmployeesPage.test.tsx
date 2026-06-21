@@ -20,6 +20,10 @@ vi.mock("../components/Skeleton", () => ({
   Skeleton: () => <div>SkeletonMock</div>,
 }));
 
+vi.mock("../components/EmployeesTable", () => ({
+  EmployeesTable: () => <div>EmployeesTableMock</div>,
+}));
+
 describe("EmployeesPage", () => {
   beforeEach(() => {
     useEmployeesMock.mockReset();
@@ -39,7 +43,7 @@ describe("EmployeesPage", () => {
 
     expect(screen.getByText("SkeletonMock")).toBeInTheDocument();
     expect(screen.queryByText("ErrorStateMock")).not.toBeInTheDocument();
-    expect(screen.queryByText("EmployeesPage")).not.toBeInTheDocument();
+    expect(screen.queryByText("EmployeesTableMock")).not.toBeInTheDocument();
   });
 
   it("renders error state when error exists", () => {
@@ -59,13 +63,13 @@ describe("EmployeesPage", () => {
     expect(screen.getByText("ErrorStateMock")).toBeInTheDocument();
     expect(errorStatePropsMock).toHaveBeenCalledWith({ error, onRetry: refetch });
     expect(screen.queryByText("SkeletonMock")).not.toBeInTheDocument();
-    expect(screen.queryByText("EmployeesPage")).not.toBeInTheDocument();
+    expect(screen.queryByText("EmployeesTableMock")).not.toBeInTheDocument();
   });
 
-  it("renders content when data is ready and no error", () => {
+  it("renders the table when data is ready and no error", () => {
     useEmployeesMock.mockReturnValue({
-      employees: [{ id: "1", firstName: "John", lastName: "Doe" }],
-      filters: { departments: [] },
+      employees: [],
+      filters: null,
       isLoading: false,
       error: null,
       refetch: vi.fn(),
@@ -73,7 +77,7 @@ describe("EmployeesPage", () => {
 
     render(<EmployeesPage />);
 
-    expect(screen.getByText("EmployeesPage")).toBeInTheDocument();
+    expect(screen.getByText("EmployeesTableMock")).toBeInTheDocument();
     expect(screen.queryByText("SkeletonMock")).not.toBeInTheDocument();
     expect(screen.queryByText("ErrorStateMock")).not.toBeInTheDocument();
   });

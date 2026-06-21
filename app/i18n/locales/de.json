@@ -54,5 +54,44 @@
       "documents": "Dokumente",
       "training": "Schulung"
     }
+  },
+  "employees": {
+    "title": "Alle Mitarbeitenden",
+    "search": "Suchen",
+    "empty": "Keine Mitarbeitenden gefunden",
+    "page": {
+      "title": "Mitarbeitende",
+      "description": "Hier können Sie alle Mitarbeitenden anzeigen und verwalten."
+    },
+    "columns": {
+      "name": "Name",
+      "vorname": "Vorname",
+      "beruf": "Beruf",
+      "telefon": "Telefonnummer",
+      "plz": "Postleitzahl",
+      "eintritt": "Eintrittsdatum",
+      "ueberlassen": "Überlassen bis",
+      "status": "Status",
+      "aktionen": "Aktionen"
+    },
+    "filters": {
+      "beruf": "Beruf",
+      "plz": "Postleitzahl",
+      "eintritt": "Eintrittsdatum",
+      "ueberlassen": "Überlassen bis",
+      "status": "Status"
+    },
+    "status": {
+      "mitarbeiter": "Mitarbeiter",
+      "bewerber": "Bewerber",
+      "ehemalig": "ehem. Mitarbeiter",
+      "zukuenftig": "zuk. Mitarbeiter",
+      "bewerber-cockpit": "Bewerber-Cockpit"
+    },
+    "actions": {
+      "view": "Details anzeigen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen"
+    }
   }
 }
