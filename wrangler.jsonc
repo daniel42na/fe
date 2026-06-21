@@ -1,0 +1,8 @@
+{
+  "name": "pdl-frontend-code-challenge",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./build/client",
+    "not_found_handling": "single-page-application"
+  }
+}
