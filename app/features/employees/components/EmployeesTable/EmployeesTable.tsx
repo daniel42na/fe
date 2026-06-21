@@ -286,7 +286,7 @@ const EmployeesTable = ({ employees, filters }: Props) => {
             density="-4"
             placement="bottom-right"
           >
-            <Button variant="text" icon="columns"/>
+            <Button variant="text" icon="columns" />
           </PopUpMenu>
         }
         filters={
