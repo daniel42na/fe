@@ -1,5 +1,5 @@
-import { initReactI18next } from "react-i18next";
 import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 
 import { LANGUAGE_STORAGE_KEY, LANGUAGES } from "../constants/preferences";
 import de from "./locales/de.json";

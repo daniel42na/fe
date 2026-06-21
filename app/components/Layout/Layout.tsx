@@ -1,22 +1,21 @@
-import { useMemo } from "react";
-import { useTranslation } from "react-i18next";
-import { Link, useLocation } from "react-router";
 import {
   Breadcrumbs,
+  type BreadcrumbsItem,
   Card,
   Grid,
+  type ListMenuItem,
   SideNavigation,
   Stack,
   Typography,
   UserArea,
   ZvooveBrand,
-  type BreadcrumbsItem,
-  type ListMenuItem,
 } from "@zvoove/unity-ui";
-
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router";
+import { ROUTES } from "~/routes";
 import { useSharedUserArea } from "./useSharedUserArea";
 import { useSidebarOpen } from "./useSidebarOpen";
-import { ROUTES } from "~/routes";
 
 function getActiveItemId(
   pathname: string,

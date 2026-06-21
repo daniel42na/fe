@@ -1,6 +1,6 @@
+import type { SideNavigationProps } from "@zvoove/unity-ui";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import type { SideNavigationProps } from "@zvoove/unity-ui";
 
 import { changeLanguage, LANGUAGES } from "../../i18n/changeLanguage";
 import { useTheme } from "../../theme/useTheme";

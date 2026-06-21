@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { getBreakpoint, useBreakpoint } from "@zvoove/unity-ui";
+import { useEffect, useState } from "react";
 
 const SIDEBAR_OPEN_STORAGE_KEY = "shell:sidebar-open";
 

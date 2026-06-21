@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
+import { fetchEmployeeFilters, fetchEmployees } from "~/mocked/api/employees";
 import type { Employee, EmployeeFilters } from "~/mocked/types/employee";
-import { fetchEmployees, fetchEmployeeFilters } from "~/mocked/api/employees";
 
 type UseEmployeesResult = {
   employees: Employee[];

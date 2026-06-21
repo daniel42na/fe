@@ -1,6 +1,6 @@
+import { ErrorState } from "~/components/ErrorState";
 import { useEmployees } from "~/mocked/hooks/useEmployees";
 import { Skeleton } from "../components/Skeleton";
-import { ErrorState } from "~/components/ErrorState";
 
 function EmployeesPage() {
   const { employees, filters, isLoading, error, refetch } = useEmployees();
