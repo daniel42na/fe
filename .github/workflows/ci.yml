@@ -29,3 +29,6 @@ jobs:
 
       - name: TypeScript
         run: pnpm typecheck
+
+      - name: Tests
+        run: pnpm test
