@@ -9,6 +9,6 @@ function EmployeesPage() {
   if (error) return <ErrorState onRetry={refetch} error={error} />;
 
   return <div>EmployeesPage</div>;
-};
+}
 
 export default EmployeesPage;

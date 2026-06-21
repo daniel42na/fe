@@ -1,8 +1,9 @@
-import { Skeleton as SkeletonComponent, Stack } from '@zvoove/unity-ui';
+import { Skeleton as SkeletonComponent, Stack } from "@zvoove/unity-ui";
 
-const Skeleton = () =>
+const Skeleton = () => (
   <Stack>
     <SkeletonComponent />
-  </Stack>;
+  </Stack>
+);
 
 export default Skeleton;

@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { Button, Icon, Stack, Typography } from '@zvoove/unity-ui';
-import { useTranslation } from 'react-i18next';
+import { useEffect } from "react";
+import { Button, Icon, Stack, Typography } from "@zvoove/unity-ui";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   error?: Error;

@@ -62,7 +62,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const menuItems = [
     { label: t("nav.home"), id: "home", icon: "home", to: ROUTES.home },
-    { label: t("nav.employees"), id: "employees", icon: "users", to: ROUTES.employees },
+    {
+      label: t("nav.employees"),
+      id: "employees",
+      icon: "users",
+      to: ROUTES.employees,
+    },
   ] as ListMenuItem<typeof Link>[];
 
   const breadcrumbItems = getBreadcrumbItems(pathname, t);
