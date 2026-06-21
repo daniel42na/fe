@@ -13,5 +13,46 @@
   "user": {
     "guest": "Guest",
     "subtitle": "Code Challenge"
+  },
+  "error": {
+    "unknown": "Something went wrong",
+    "retry": "Try again"
+  },
+  "dashboard": {
+    "announcement": "Welcome to your HR dashboard",
+    "kpis": {
+      "employees": "Employees",
+      "positions": "Open positions",
+      "onboarding": "Onboarding",
+      "leave": "On leave"
+    },
+    "activity": {
+      "signedContract": "signed a contract",
+      "completedOnboarding": "completed onboarding",
+      "submittedLeave": "submitted a leave request",
+      "newApplication": "submitted a new application"
+    },
+    "time": {
+      "hoursAgo": "2 hours ago",
+      "yesterday": "Yesterday",
+      "daysAgo": "3 days ago",
+      "hoursAgo2": "5 hours ago"
+    },
+    "upcoming": {
+      "interview": "Job interview",
+      "probationEnd": "End of probation period",
+      "teamMeeting": "Team meeting",
+      "training": "Training session"
+    },
+    "tags": {
+      "recruiting": "Recruiting",
+      "hr": "HR",
+      "team": "Team",
+      "learning": "Learning"
+    },
+    "onboarding": {
+      "documents": "Documents",
+      "training": "Training"
+    }
   }
 }

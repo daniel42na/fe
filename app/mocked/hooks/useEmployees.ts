@@ -21,13 +21,13 @@ export function useEmployees(): UseEmployeesResult {
       setError(null);
       setIsLoading(true);
 
-      const [nextEmployees, nextFilters] = await Promise.all([
+      const [employees, filters] = await Promise.all([
         fetchEmployees(),
         fetchEmployeeFilters(),
       ]);
 
-      setEmployees(nextEmployees);
-      setFilters(nextFilters);
+      setEmployees(employees);
+      setFilters(filters);
     } catch (err) {
       setError(err as Error);
     } finally {

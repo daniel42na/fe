@@ -13,5 +13,46 @@
   "user": {
     "guest": "Gast",
     "subtitle": "Code Challenge"
+  },
+  "error": {
+    "unknown": "Etwas ist schiefgelaufen",
+    "retry": "Erneut versuchen"
+  },
+  "dashboard": {
+    "announcement": "Willkommen in Ihrem HR-Dashboard",
+    "kpis": {
+      "employees": "Mitarbeitende",
+      "positions": "Offene Stellen",
+      "onboarding": "Onboarding",
+      "leave": "Abwesend"
+    },
+    "activity": {
+      "signedContract": "hat einen Vertrag unterschrieben",
+      "completedOnboarding": "hat das Onboarding abgeschlossen",
+      "submittedLeave": "hat einen Urlaubsantrag eingereicht",
+      "newApplication": "hat eine neue Bewerbung eingereicht"
+    },
+    "time": {
+      "hoursAgo": "vor 2 Stunden",
+      "yesterday": "Gestern",
+      "daysAgo": "vor 3 Tagen",
+      "hoursAgo2": "vor 5 Stunden"
+    },
+    "upcoming": {
+      "interview": "Vorstellungsgespräch",
+      "probationEnd": "Ende der Probezeit",
+      "teamMeeting": "Teammeeting",
+      "training": "Schulung"
+    },
+    "tags": {
+      "recruiting": "Recruiting",
+      "hr": "Personal",
+      "team": "Team",
+      "learning": "Weiterbildung"
+    },
+    "onboarding": {
+      "documents": "Dokumente",
+      "training": "Schulung"
+    }
   }
 }

@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router";
 import {
@@ -66,6 +67,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const breadcrumbItems = getBreadcrumbItems(pathname, t);
   const activeItem = getActiveItemId(pathname, menuItems);
+  const headerDate = useMemo(
+    () => formatHeaderDate(new Date(), i18n.language),
+    [i18n.language],
+  );
 
   return (
     <div className="h-dvh bg-background grid grid-rows-[48px_1fr] tablet:flex tablet:flex-col w-full">
@@ -140,7 +145,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   width="fit-content"
                 >
                   <Typography color="on-surface-variant" as="span">
-                    {formatHeaderDate(new Date(), i18n.language)}
+                    {headerDate}
                   </Typography>
                 </Stack>
               </Stack>
