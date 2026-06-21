@@ -3,7 +3,9 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  plugins: process.env.VITEST ? [tailwindcss()] : [tailwindcss(), reactRouter()],
+  plugins: process.env.VITEST
+    ? [tailwindcss()]
+    : [tailwindcss(), reactRouter()],
   resolve: {
     tsconfigPaths: true,
   },
