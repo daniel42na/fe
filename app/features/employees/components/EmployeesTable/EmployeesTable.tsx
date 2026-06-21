@@ -51,9 +51,31 @@ const DEFAULT_ORDER_BY: OrderBy = {
   direction: "asc",
 };
 
+type EmployeeColumnId =
+  | "name"
+  | "vorname"
+  | "beruf"
+  | "telefon"
+  | "plz"
+  | "eintritt"
+  | "ueberlassen"
+  | "status"
+  | "aktionen";
+
+const HIDEABLE_COLUMNS: EmployeeColumnId[] = [
+  "beruf",
+  "telefon",
+  "plz",
+  "eintritt",
+  "ueberlassen",
+  "status",
+  "aktionen",
+];
+
 const EmployeesTable = ({ employees, filters }: Props) => {
   const { t } = useTranslation();
   const [orderBy, setOrderBy] = useState(DEFAULT_ORDER_BY);
+  const [hiddenColumns, setHiddenColumns] = useState<EmployeeColumnId[]>([]);
   const { search, setSearch, selected, toggleFilter, filteredEmployees } =
     useEmployeeFilters(employees, filters);
 
@@ -74,7 +96,7 @@ const EmployeesTable = ({ employees, filters }: Props) => {
     [handleColumnSort, orderBy],
   );
 
-  const columns = useMemo<TableColumnProps[]>(
+  const allColumns = useMemo<TableColumnProps[]>(
     () => [
       {
         id: "name",
@@ -119,6 +141,18 @@ const EmployeesTable = ({ employees, filters }: Props) => {
     ],
     [renderColumnLabel, t],
   );
+
+  const handleToggleColumnVisibility = useCallback((columnId: string) => {
+    if (!HIDEABLE_COLUMNS.includes(columnId as EmployeeColumnId)) {
+      return;
+    }
+
+    setHiddenColumns((prev) =>
+      prev.includes(columnId as EmployeeColumnId)
+        ? prev.filter((id) => id !== columnId)
+        : [...prev, columnId as EmployeeColumnId],
+    );
+  }, []);
 
   const sortedEmployees = useMemo(() => {
     if (!SORTABLE_COLUMNS.includes(orderBy.column)) {
@@ -233,9 +267,28 @@ const EmployeesTable = ({ employees, filters }: Props) => {
   return (
     <Stack direction="column" gap="md" width="100%">
       <Table
-        columns={columns}
+        columns={allColumns}
         data={data}
+        hiddenColumns={hiddenColumns}
         title={`${t("employees.title")} (${filteredEmployees.length})`}
+        actions={
+          <PopUpMenu
+            selectable="multiple"
+            selectedItem={HIDEABLE_COLUMNS.filter(
+              (columnId) => !hiddenColumns.includes(columnId),
+            )}
+            onItemClick={(item) => handleToggleColumnVisibility(item.id)}
+            items={HIDEABLE_COLUMNS.map((columnId) => ({
+              id: columnId,
+              label: t(`employees.columns.${columnId}`),
+              keepOpen: true,
+            }))}
+            density="-4"
+            placement="bottom-right"
+          >
+            <Button variant="text" icon="columns"/>
+          </PopUpMenu>
+        }
         filters={
           <FilterControls
             search={search}

@@ -74,6 +74,7 @@
   "employees": {
     "title": "Alle Mitarbeitenden",
     "search": "Suchen",
+    "columnVisibility": "Spalten",
     "empty": "Keine Mitarbeitenden gefunden",
     "page": {
       "title": "Mitarbeitende",

@@ -74,6 +74,7 @@
   "employees": {
     "title": "All employees",
     "search": "Search",
+    "columnVisibility": "Columns",
     "empty": "No employees found",
     "page": {
       "title": "Employees",
