@@ -1,0 +1,2 @@
+# LLM guidance index
+- Repository AI rules: ./.ai/RULES.md
