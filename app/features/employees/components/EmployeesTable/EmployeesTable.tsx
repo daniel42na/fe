@@ -19,7 +19,7 @@ import type {
 } from "~/mocked/types/employee";
 import { useEmployeeFilters } from "../../hooks/useEmployeeFilters";
 import type { OrderBy, SortableColumnId } from "../../types/types";
-import { getColumnLabel, getNextOrderBy, parseDate } from "../../utils";
+import { parseDate } from "../../utils";
 import { FilterControls } from "../FilterControls";
 
 type Props = {
@@ -86,52 +86,47 @@ const EmployeesTable = ({ employees, filters }: Props) => {
     [],
   );
 
-  const handleColumnSort = useCallback((column: SortableColumnId) => {
-    setOrderBy((prev) => getNextOrderBy(prev, column));
-  }, []);
-
-  const renderColumnLabel = useCallback(
-    (column: SortableColumnId, label: string) =>
-      getColumnLabel({ column, label, orderBy, onSort: handleColumnSort }),
-    [handleColumnSort, orderBy],
-  );
-
   const allColumns = useMemo<TableColumnProps[]>(
     () => [
       {
         id: "name",
-        label: renderColumnLabel("name", t("employees.columns.name")),
+        label: t("employees.columns.name"),
+        orderable: true,
       },
       {
         id: "vorname",
-        label: renderColumnLabel("vorname", t("employees.columns.vorname")),
+        label: t("employees.columns.vorname"),
+        orderable: true,
       },
       {
         id: "beruf",
-        label: renderColumnLabel("beruf", t("employees.columns.beruf")),
+        label: t("employees.columns.beruf"),
+        orderable: true,
       },
       {
         id: "telefon",
-        label: renderColumnLabel("telefon", t("employees.columns.telefon")),
+        label: t("employees.columns.telefon"),
+        orderable: true,
       },
       {
         id: "plz",
-        label: renderColumnLabel("plz", t("employees.columns.plz")),
+        label: t("employees.columns.plz"),
+        orderable: true,
       },
       {
         id: "eintritt",
-        label: renderColumnLabel("eintritt", t("employees.columns.eintritt")),
+        label: t("employees.columns.eintritt"),
+        orderable: true,
       },
       {
         id: "ueberlassen",
-        label: renderColumnLabel(
-          "ueberlassen",
-          t("employees.columns.ueberlassen"),
-        ),
+        label: t("employees.columns.ueberlassen"),
+        orderable: true,
       },
       {
         id: "status",
-        label: renderColumnLabel("status", t("employees.columns.status")),
+        label: t("employees.columns.status"),
+        orderable: true,
       },
       {
         id: "aktionen",
@@ -139,7 +134,7 @@ const EmployeesTable = ({ employees, filters }: Props) => {
         align: "right",
       },
     ],
-    [renderColumnLabel, t],
+    [t],
   );
 
   const handleToggleColumnVisibility = useCallback((columnId: string) => {
@@ -269,6 +264,17 @@ const EmployeesTable = ({ employees, filters }: Props) => {
       <Table
         columns={allColumns}
         data={data}
+        orderBy={orderBy}
+        onOrderByChange={({ columnId, direction }) => {
+          if (!SORTABLE_COLUMNS.includes(columnId as SortableColumnId)) {
+            return;
+          }
+
+          setOrderBy({
+            column: columnId as SortableColumnId,
+            direction: direction as OrderBy["direction"],
+          });
+        }}
         hiddenColumns={hiddenColumns}
         title={`${t("employees.title")} (${filteredEmployees.length})`}
         actions={
